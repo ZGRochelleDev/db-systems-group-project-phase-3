@@ -178,7 +178,43 @@ CREATE TABLE SPORTS_CLUB_COMPANY(
     home_location VARCHAR(255)
 );
 
-/* alter each tables schema */
+
+/* Alter Table scripts */
+
+ALTER TABLE ORGANIZATION
+  ADD PRIMARY KEY (organization_name);
+
+ALTER TABLE TEAM
+  ADD PRIMARY KEY (team_name);
+
+ALTER TABLE RECORD
+  ADD PRIMARY KEY (team_name);
+
+ALTER TABLE PLAYER
+  ADD PRIMARY KEY (player_id),
+    ADD CONSTRAINT fk_player_team_team_name
+        FOREIGN KEY (team_name) REFERENCES TEAM(team_name);
+
+ALTER TABLE LEAGUE
+  ADD PRIMARY KEY (league_name);
+
+ALTER TABLE DIVISION
+  ADD PRIMARY KEY (division_name);
+
+ALTER TABLE STATISTICS
+  ADD PRIMARY KEY (player_id, season, team_name),
+    ADD CONSTRAINT fk_statistics_player_player_id
+        FOREIGN KEY (player_id) REFERENCES PLAYER(player_id),
+    ADD CONSTRAINT fk_statistics_team_team_name
+        FOREIGN KEY (team_name) REFERENCES TEAM(team_name),
+    ADD CONSTRAINT fk_statistics_record_season
+        FOREIGN KEY (season) REFERENCES RECORD(yr);
+
+ALTER TABLE AGENT
+  ADD PRIMARY KEY (ssn),
+    ADD CONSTRAINT fk_agent_player_player_id
+        FOREIGN KEY (player_id) REFERENCES PLAYER(player_id);
+
 ALTER TABLE INJURY
   ADD PRIMARY KEY (player_id, date_of_injury, type_of_injury);
 ALTER TABLE INJURY
@@ -238,3 +274,5 @@ ALTER TABLE UMPIRE
 
 ALTER TABLE SPORTS_CLUB_COMPANY
   ADD PRIMARY KEY (club_name);
+
+/* Test Data */
