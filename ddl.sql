@@ -1,6 +1,5 @@
 USE project;
 
--- ORGANIZATION ---------------------------------------------------------------
 CREATE TABLE organization (
   organization_name VARCHAR(45) NOT NULL,
   date_founded DATE,
@@ -8,14 +7,12 @@ CREATE TABLE organization (
   PRIMARY KEY (organization_name)
 );
 
--- TEAM -----------------------------------------------------------------------
 CREATE TABLE team(
     team_name VARCHAR(45) NOT NULL,
     home_stadium VARCHAR(45) NOT NULL,
     PRIMARY KEY(team_name)
 );
 
--- RECORD ---------------------------------------------------------------------
 CREATE TABLE record(
     team_name VARCHAR(45) NOT NULL,
     yr YEAR(4) NOT NULL,
@@ -24,7 +21,6 @@ CREATE TABLE record(
     FOREIGN KEY (team_name) REFERENCES team(team_name)
 );
 
--- PLAYER ---------------------------------------------------------------------
 CREATE TABLE player(
     player_id INT NOT NULL,
     player_name VARCHAR(45),
@@ -38,21 +34,18 @@ CREATE TABLE player(
     FOREIGN KEY (team_name) REFERENCES team(team_name)
 );
 
--- LEAGUE ---------------------------------------------------------------------
 CREATE TABLE league(
     league_name VARCHAR(45) NOT NULL,
     date_founded DATE,
     PRIMARY KEY(league_name)
 );
 
--- DIVISION -------------------------------------------------------------------
 CREATE TABLE division(
     division_name VARCHAR(45) NOT NULL,
     date_founded DATE,
     PRIMARY KEY(division_name)
 );
 
--- STATISTICS -----------------------------------------------------------------
 CREATE TABLE statistics(
     player_id INT NOT NULL,
     season YEAR(4) NOT NULL,
@@ -75,7 +68,6 @@ CREATE TABLE statistics(
     -- NOTE: Cannot reference record(yr) because yr is not PK alone
 );
 
--- AGENT ----------------------------------------------------------------------
 CREATE TABLE agent(
     ssn CHAR(9) NOT NULL,
     player_id INT NOT NULL,
@@ -86,18 +78,17 @@ CREATE TABLE agent(
     FOREIGN KEY (player_id) REFERENCES player(player_id)
 );
 
--- INJURY ---------------------------------------------------------------------
 CREATE TABLE injury(
     player_id INT NOT NULL,
     type_of_injury VARCHAR(255) NOT NULL,
     date_of_injury DATE NOT NULL,
     return_date DATE,
     PRIMARY KEY (player_id, type_of_injury, date_of_injury),
-    FOREIGN KEY (player_id) REFERENCES player(player_id)
+    FOREIGN KEY (player_id) REFERENCES player(player_id),
+    FOREIGN KEY (type_of_injury) REFERENCES injury_type(type_of_injury)
       ON DELETE CASCADE ON UPDATE RESTRICT
 );
 
--- INJURY_TYPE ----------------------------------------------------------------
 CREATE TABLE injury_type(
     type_of_injury VARCHAR(255) NOT NULL,
     treatment VARCHAR(255),
@@ -105,7 +96,6 @@ CREATE TABLE injury_type(
     PRIMARY KEY(type_of_injury)
 );
 
--- COACHES --------------------------------------------------------------------
 CREATE TABLE coaches( 
     coach_id INT NOT NULL,
     name VARCHAR(255),
@@ -120,7 +110,6 @@ CREATE TABLE coaches(
       ON UPDATE RESTRICT ON DELETE SET NULL
 );
 
--- GAME -----------------------------------------------------------------------
 CREATE TABLE game(
     game_id INT NOT NULL,
     location VARCHAR(255),
@@ -137,7 +126,6 @@ CREATE TABLE game(
       ON UPDATE RESTRICT ON DELETE CASCADE
 );
 
--- UMPIRE_PARTICIPATION -------------------------------------------------------
 CREATE TABLE umpire_participation(
     game_id INT NOT NULL,
     home_base VARCHAR(255),
@@ -148,7 +136,6 @@ CREATE TABLE umpire_participation(
     FOREIGN KEY (game_id) REFERENCES game(game_id)
 );
 
--- SPECTATOR ------------------------------------------------------------------
 CREATE TABLE spectator(
     fan_club_id INT NOT NULL,
     game_id INT NOT NULL,
@@ -159,7 +146,6 @@ CREATE TABLE spectator(
       ON DELETE CASCADE ON UPDATE RESTRICT
 );
 
--- TICKET ---------------------------------------------------------------------
 CREATE TABLE ticket(
     ticket_id INT NOT NULL,
     game_id INT NOT NULL,
@@ -169,7 +155,6 @@ CREATE TABLE ticket(
       ON DELETE CASCADE ON UPDATE RESTRICT
 );
 
--- SPORTS_CLUB_COMPANY --------------------------------------------------------
 CREATE TABLE sports_club_company( 
     club_name VARCHAR(255) NOT NULL,
     address VARCHAR(255),
@@ -178,7 +163,6 @@ CREATE TABLE sports_club_company(
     PRIMARY KEY(club_name)
 );
 
--- SPONSOR --------------------------------------------------------------------
 CREATE TABLE sponsor(
     club_name VARCHAR(255) NOT NULL,
     sponsor_name VARCHAR(255) NOT NULL,
@@ -188,7 +172,6 @@ CREATE TABLE sponsor(
       ON DELETE CASCADE ON UPDATE RESTRICT
 );
 
--- UMPIRE ---------------------------------------------------------------------
 CREATE TABLE umpire(
     ssn CHAR(9) NOT NULL,
     name VARCHAR(255),
