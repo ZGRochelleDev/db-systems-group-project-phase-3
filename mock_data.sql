@@ -40,12 +40,12 @@ VALUES
   ('New Haven Fog', 'Fog Field');
 
 /* 3) Record -> team */
-INSERT INTO record (team_name, yr, record)
+INSERT INTO record (team_name, yr, wins, loss)
 VALUES
-  ('Quinnipiac Bobcats', 2024, '92-70'),
-  ('Cheshire Bears', 2024, '88-74');
-  ('Wallingford Stars', 2024, '95-67'),
-  ('New Haven Fog', 2024, '81-81');
+  ('Quinnipiac Bobcats', 2024, 92, 70),
+  ('Cheshire Bears', 2024, 88, 74);
+  ('Wallingford Stars', 2024, 95, 67),
+  ('New Haven Fog', 2024, 81, 81);
 
 /* Players -> team */
 INSERT INTO player (player_id, player_name, ssn, position, cntrct, jersey_number, bio, team_name)
@@ -86,7 +86,7 @@ VALUES
   (12, 'Harper Stone', 'Wallingford Stars', 1100000.00, '1972-12-09', 'Head Coach', '2021-10-01', NULL),
   (13, 'Devon Reyes',  'New Haven Fog',  900000.00, '1983-06-30', 'Head Coach', '2023-01-10', NULL);
 
-/* (FK -> team for home_team & away_team) */
+/* FK -> (team for home_team & away_team) */
 INSERT INTO game (game_id, location, game_type, home_team, away_team, score_home, score_away, year_played)
 VALUES
   (1001, 'Knight Park', 'Regular Season', 'Quinnipiac Bobcats', 'Cheshire Bears', 5, 3, 2024);
