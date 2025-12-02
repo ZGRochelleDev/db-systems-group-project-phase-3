@@ -112,14 +112,6 @@ CREATE TABLE COACHES(
     end_date DATE
 );
 
--- TEAM(team_name, home_location, founding_year, championships_won)
-CREATE TABLE TEAM( 
-    team_name VARCHAR(255) NOT NULL,
-    home_location VARCHAR(255),
-    founding_year INT,
-    championships_won INT
-);
-
 -- GAME(game_id, location, game_type, home_team, away_team, score_home, score_away, year_played)
 CREATE TABLE GAME(
     game_id INT NOT NULL,
