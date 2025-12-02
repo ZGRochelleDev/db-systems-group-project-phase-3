@@ -71,7 +71,7 @@ CREATE TABLE statistics(
     defensive_runs_saved INT,
     PRIMARY KEY(player_id, season, team_name),
     FOREIGN KEY (player_id) REFERENCES player(player_id),
-    FOREIGN KEY (team_name) REFERENCES team(team_name)
+    FOREIGN KEY (team_name, season) REFERENCES record(team_name, yr)
     -- NOTE: Cannot reference record(yr) because yr is not PK alone
 );
 
