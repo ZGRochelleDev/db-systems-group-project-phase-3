@@ -16,7 +16,8 @@ CREATE TABLE team(
 CREATE TABLE record(
     team_name VARCHAR(45) NOT NULL,
     yr YEAR(4) NOT NULL,
-    record VARCHAR(45),
+    wins INT,
+    loss INT,
     PRIMARY KEY(team_name, yr),
     FOREIGN KEY (team_name) REFERENCES team(team_name)
 );
@@ -65,7 +66,6 @@ CREATE TABLE statistics(
     PRIMARY KEY(player_id, season, team_name),
     FOREIGN KEY (player_id) REFERENCES player(player_id),
     FOREIGN KEY (team_name, season) REFERENCES record(team_name, yr)
-    -- NOTE: Cannot reference record(yr) because yr is not PK alone
 );
 
 CREATE TABLE agent(
