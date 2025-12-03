@@ -102,7 +102,6 @@ VALUES
     (6,  'Wrist sprain', '2024-06-14', '2024-07-02'),
     (10, 'Lower back tightness', '2024-08-05', '2024-08-18');
 
-
 /* Coaches -> team */
 INSERT INTO coaches (coach_id, name, team_name, salary, dob, role, hire_date, end_date)
 VALUES
@@ -135,5 +134,5 @@ VALUES
 /* Umpire participation -> game */
 INSERT INTO umpire_participation (game_id, home_base, first_base, second_base, third_base)
 VALUES
-    (1001, 'Pat Lawson', 'Dana Kim', 'Morgan Lee', 'Jamie Fox');
+    (1001, 'Pat Lawson', 'Dana Kim', 'Morgan Lee', 'Jamie Fox'),
     (1002, 'Pat Lawson', 'Dana Kim', 'Morgan Lee', 'Jamie Fox');
