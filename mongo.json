@@ -1,0 +1,168 @@
+[
+
+
+  {
+    "players": [
+      {
+        "player_id": 1,
+        "player_name": "Jordan Rivera",
+        "ssn": "123456789",
+        "position": "Pitcher",
+        "cntrct": 5000000,
+        "jersey_number": 27,
+        "bio": "Ace starter",
+        "home_stadium": "Knight Park",
+        "agent": {
+            "name": "Jerry Maguire",
+            "ssn": 555666777,
+            "salary": 250000.0,
+            "agency": "Prime Sports"
+        },
+        "injuries": [
+          {
+            "type_of_injury": "Hamstring strain",
+            "date_of_injury": "2024-05-10",
+            "return_date": "2024-06-01"
+          },
+          {
+            "type_of_injury": "Shoulder inflammation",
+            "date_of_injury": "2023-08-15",
+            "return_date": "2023-09-05"
+          }
+        ],
+        "player_statistics": [
+          {
+            "team_name": "Quinnipiac Bobcats",
+            "season": 2024,
+            "wins": 15,
+            "era": 3.21,
+            "whip": 1.12,
+            "strikeouts": 180,
+            "batting_avg": null,
+            "homeruns": null,
+            "stolen_base": null,
+            "ops": null,
+            "hits": null,
+            "fielding_pct": null,
+            "errors": null,
+            "defensive_runs_saved": null
+          },
+          {
+            "team_name": "Quinnipiac Bobcats",
+            "season": 2023,
+            "wins": 12,
+            "era": 3.45,
+            "whip": 1.25,
+            "strikeouts": 150,
+            "batting_avg": null,
+            "homeruns": null,
+            "stolen_base": null,
+            "ops": null,
+            "hits": null,
+            "fielding_pct": null,
+            "errors": null,
+            "defensive_runs_saved": null
+          }
+        ]
+      }
+    ]
+  },
+
+  {
+    "teams": [
+      {
+        "team_name": "Quinnipiac Bobcats",
+        "home_stadium": "Knight Park",
+        "coach": "Sam Delgado",
+        "coach_salary": 1200000.0,
+        "coach_dob": "1975-03-14",
+        "coach_role": "Head Coach",
+        "coach_hire_date": "2020-11-01",
+        "coach_end_date": null,
+        "club_name": "Quinnipiac Sports Group",
+        "sponsors": [
+          {
+            "sponsor_name": "Acme Corp",
+            "contract": "3 years, $2.5M"
+          },
+          {
+            "sponsor_name": "NorthStar Bank",
+            "contract": "2 years, $1.2M"
+          }
+        ],
+        "records": [
+          {
+            "season": 2024,
+            "wins": 92,
+            "losses": 70
+          },
+          {
+            "season": 2023,
+            "wins": 84,
+            "losses": 55
+          }
+        ]
+      }
+    ]
+  },
+
+
+{
+    "games":[
+        {
+            "game_id": 1001,
+            "location": "Knight Park",
+            "game_type": "Regular Season",
+            "home_team": "Quinnipiac Bobcats",
+            "away_team": "Cheshire Bears",
+            "score_home": 5,
+            "score_away": 3,
+            "year_played": 2024,
+            "umpires": [
+                {
+                    "name": "Pat Lawson",
+                    "role": "home_base",
+                    "ssn": 222333444,
+                    "games_participated_count": 120
+                },
+                {
+                    "name": "Dana Kim",
+                    "role": "first_base",
+                    "ssn": 333444555,
+                    "games_participated_count": 98
+                },
+                {
+                    "name": "Morgan Lee",
+                    "role": "second_base",
+                    "ssn": 444555666,
+                    "games_participated_count": 110
+                },
+                {
+                    "name": "Jamie Fox",
+                    "role": "third_base",
+                    "ssn": 666777888,
+                    "games_participated_count": 87
+                }
+            ],
+            "spectators": [
+                {
+                    "fan_club_id": 9001,
+                    "name": "Taylor Brooks",
+                    "ticket_id": 50001,
+                    "seat": "A-101"
+                },
+                {
+                    "fan_club_id": 9002,
+                    "name": "Morgan Lee",
+                    "ticket_id": 50002,
+                    "seat": "A-102"
+                }
+            ]
+        }
+    ]
+}
+
+
+
+]
+

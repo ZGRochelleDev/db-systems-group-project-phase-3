@@ -47,7 +47,7 @@ CREATE TABLE division(
     PRIMARY KEY(division_name)
 );
 
-CREATE TABLE statistics(
+CREATE TABLE player_statistics(
     player_id INT NOT NULL,
     season YEAR(4) NOT NULL,
     team_name VARCHAR(45),
@@ -96,7 +96,7 @@ CREATE TABLE injury_type(
     PRIMARY KEY(type_of_injury)
 );
 
-CREATE TABLE coaches( 
+CREATE TABLE coach( 
     coach_id INT NOT NULL,
     name VARCHAR(255),
     team_name VARCHAR(255),
@@ -128,10 +128,10 @@ CREATE TABLE game(
 
 CREATE TABLE umpire_participation(
     game_id INT NOT NULL,
-    home_base VARCHAR(255),
-    first_base VARCHAR(255),
-    second_base VARCHAR(255),
-    third_base VARCHAR(255),
+    home_base ssn CHAR(9),
+    first_base ssn CHAR(9),
+    second_base ssn CHAR(9),
+    third_base ssn CHAR(9),
     PRIMARY KEY(game_id),
     FOREIGN KEY (game_id) REFERENCES game(game_id)
 );
