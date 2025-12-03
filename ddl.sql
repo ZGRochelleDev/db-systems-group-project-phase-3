@@ -128,12 +128,16 @@ CREATE TABLE game(
 
 CREATE TABLE umpire_participation(
     game_id INT NOT NULL,
-    home_base ssn CHAR(9),
-    first_base ssn CHAR(9),
-    second_base ssn CHAR(9),
-    third_base ssn CHAR(9),
+    home_base VARCHAR(255),
+    first_base VARCHAR(255),
+    second_base VARCHAR(255),
+    third_base VARCHAR(255),
     PRIMARY KEY(game_id),
     FOREIGN KEY (game_id) REFERENCES game(game_id)
+    FOREIGN KEY (home_base) REFERENCES umpire(ssn)
+    FOREIGN KEY (first_base) REFERENCES umpire(ssn)
+    FOREIGN KEY (second_base) REFERENCES umpire(ssn)
+    FOREIGN KEY (third_base) REFERENCES umpire(ssn)
 );
 
 CREATE TABLE spectator(
