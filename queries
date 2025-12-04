@@ -1,0 +1,42 @@
+--Find all of player name who have carrier batting avg higher than league avg--
+Select p.player_name, avg(s.batting_avg) as carrier_batting_avg
+FROM player as p
+Inner join statistics as s on p.player_id = s.player_id
+GROUP BY p.player_id, p.player_name
+Having avg(s.batting_avg) >= (
+Select avg(batting_avg) From statistics
+);
+
+--List all coaches with winning records whose salary is below the average coach salary, along with their win percentage, sorted by salary from lowest to highest.--
+Select C.name, C.salary, (R.wins/R.loss * 100) as Win_Percentage
+From Coaches as C
+Inner join record as R on C.team_name = R.team_name
+Where R.wins > R.loss
+Group by C.salary, C.name, R.wins, R.loss
+Having C.salary < (Select avg(salary) from Coaches)
+Order By C.salary asc;
+
+--Find all players who have more than 3 injuries in the last year--
+Select P.player_name, Count(*) as number_of_injury
+From player as P
+Inner Join injury as I on P.player_id = I.player_id
+where I.date_of_injury >= date_sub(Curdate(), Interval 1 year)
+Group by P.player_id
+Having Count(*) > 3
+
+--Find all umpires who have participated in more than 5 playoff games--
+Select u.name, Count(*) as number_of_playoff_game_participated
+From umpire as U
+INNER JOIN umpire_participation AS up ON 
+(u.ssn = up.home_base OR u.ssn = up.first_base OR u.ssn = up.second_base OR u.ssn = up.third_base)
+INNER JOIN game AS G ON up.game_id = g.game_id
+Where G.game_type = 'playoff'
+Group by  u.ssn, u.name
+Having Count(*) > 5
+
+--Find number of games that have sold more than 29500 (Avg ticket sold in a MLB game) tickets--
+Select G.game_id, Count(*) as number_of_ticket_sold
+From game as G 
+Inner Join ticket as T on G.game_id = T.game_id
+Group by G.game_id
+Having Count(*) > 29500
