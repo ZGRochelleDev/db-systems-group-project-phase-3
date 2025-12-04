@@ -1,6 +1,6 @@
 USE project;
 
-CREATE TABLE organization (
+CREATE TABLE organization(
   organization_name VARCHAR(45) NOT NULL,
   date_founded DATE,
   headquarters VARCHAR(45),
@@ -78,6 +78,13 @@ CREATE TABLE agent(
     FOREIGN KEY (player_id) REFERENCES player(player_id)
 );
 
+CREATE TABLE injury_type(
+    type_of_injury VARCHAR(255) NOT NULL,
+    treatment VARCHAR(255),
+    affected_body_part VARCHAR(255),
+    PRIMARY KEY(type_of_injury)
+);
+
 CREATE TABLE injury(
     player_id INT NOT NULL,
     type_of_injury VARCHAR(255) NOT NULL,
@@ -87,13 +94,6 @@ CREATE TABLE injury(
     FOREIGN KEY (player_id) REFERENCES player(player_id),
     FOREIGN KEY (type_of_injury) REFERENCES injury_type(type_of_injury)
       ON DELETE CASCADE ON UPDATE RESTRICT
-);
-
-CREATE TABLE injury_type(
-    type_of_injury VARCHAR(255) NOT NULL,
-    treatment VARCHAR(255),
-    affected_body_part VARCHAR(255),
-    PRIMARY KEY(type_of_injury)
 );
 
 CREATE TABLE coach( 
@@ -124,20 +124,6 @@ CREATE TABLE game(
       ON UPDATE RESTRICT ON DELETE CASCADE,
     FOREIGN KEY (away_team) REFERENCES team(team_name)
       ON UPDATE RESTRICT ON DELETE CASCADE
-);
-
-CREATE TABLE umpire_participation(
-    game_id INT NOT NULL,
-    home_base VARCHAR(255),
-    first_base VARCHAR(255),
-    second_base VARCHAR(255),
-    third_base VARCHAR(255),
-    PRIMARY KEY(game_id),
-    FOREIGN KEY (game_id) REFERENCES game(game_id)
-    FOREIGN KEY (home_base) REFERENCES umpire(ssn)
-    FOREIGN KEY (first_base) REFERENCES umpire(ssn)
-    FOREIGN KEY (second_base) REFERENCES umpire(ssn)
-    FOREIGN KEY (third_base) REFERENCES umpire(ssn)
 );
 
 CREATE TABLE spectator(
@@ -181,4 +167,18 @@ CREATE TABLE umpire(
     name VARCHAR(255),
     games_participated_count INT,
     PRIMARY KEY(ssn)
+);
+
+CREATE TABLE umpire_participation(
+    game_id INT NOT NULL,
+    home_base CHAR(9),
+    first_base CHAR(9),
+    second_base CHAR(9),
+    third_base CHAR(9),
+    PRIMARY KEY(game_id),
+    FOREIGN KEY (game_id) REFERENCES game(game_id),
+    FOREIGN KEY (home_base) REFERENCES umpire(ssn),
+    FOREIGN KEY (first_base) REFERENCES umpire(ssn),
+    FOREIGN KEY (second_base) REFERENCES umpire(ssn),
+    FOREIGN KEY (third_base) REFERENCES umpire(ssn)
 );
