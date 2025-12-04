@@ -15,7 +15,7 @@ CREATE TABLE team(
 
 CREATE TABLE record(
     team_name VARCHAR(45) NOT NULL,
-    yr YEAR(4) NOT NULL,
+    yr YEAR NOT NULL,
     wins INT,
     loss INT,
     PRIMARY KEY(team_name, yr),
@@ -47,25 +47,25 @@ CREATE TABLE division(
     PRIMARY KEY(division_name)
 );
 
-CREATE TABLE player_statistics(
+CREATE TABLE statistics(
     player_id INT NOT NULL,
-    season YEAR(4) NOT NULL,
+    season YEAR NOT NULL,
     team_name VARCHAR(45),
     wins INT,
     era DECIMAL(6,3),
     whip DECIMAL(6,3),
     strikeouts INT,
-    batting_avg DECIMAL(6,3),
+    batting_avg DECIMAL(4,3),
     homeruns INT,
     stolen_base INT,
-    ops DECIMAL(6,3),
+    ops DECIMAL(3,3),
     hits INT,
-    fielding_pct DECIMAL(6,3),
+    fielding_pct DECIMAL(4,3),
     errors INT,
     defensive_runs_saved INT,
     PRIMARY KEY(player_id, season, team_name),
     FOREIGN KEY (player_id) REFERENCES player(player_id),
-    FOREIGN KEY (team_name, season) REFERENCES record(team_name, yr)
+	FOREIGN KEY (team_name, season) REFERENCES record(team_name, yr)
 );
 
 CREATE TABLE agent(
