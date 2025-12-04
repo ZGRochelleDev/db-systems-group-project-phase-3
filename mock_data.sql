@@ -8,8 +8,9 @@ INSERT INTO league (league_name, date_founded)
 VALUES ('Mockdataball League', '1901-01-01');
 
 INSERT INTO division (division_name, date_founded)
-VALUES ('Eastern Division', '1969-01-01'),
-VALUES ('Western Division', '1969-01-01');
+VALUES
+  ('Eastern Division', '1969-01-01'),
+  ('Western Division', '1969-01-01');
 
 INSERT INTO sports_club_company (club_name, address, ballpark, home_location)
 VALUES ('Quinnipiac Sports Group', '123 Broadway, Hamden, CT', 'Knight Park', 'Hamden, CT');
@@ -18,13 +19,6 @@ INSERT INTO sponsor (club_name, sponsor_name, contract)
 VALUES
     ('Quinnipiac Sports Group', 'Acme Corp', '3 years, $2.5M'),
     ('Quinnipiac Sports Group', 'NorthStar Bank', '2 years, $1.2M');
-
-INSERT INTO umpire (ssn, name, games_participated_count)
-VALUES
-    ('222333444', 'Pat Lawson', 120),
-    ('333444555', 'Dana Kim', 98),
-    ('444555666', 'Morgan Lee', 110),
-    ('666777888', 'Jamie Fox', 87);
 
 INSERT INTO injury_type (type_of_injury, treatment, affected_body_part)
 VALUES
@@ -131,6 +125,13 @@ VALUES
     (9002, 1001, 'Avery Singh', 50002),
     (9003, 1002, 'Riley Chen', 50003),
     (9004, 1002, 'Jamie Park', 50004);
+
+INSERT INTO umpire (ssn, name, games_participated_count)
+VALUES
+    ('222333444', 'Pat Lawson', 120),
+    ('333444555', 'Dana Kim', 98),
+    ('444555666', 'Morgan Lee', 110),
+    ('666777888', 'Jamie Fox', 87);
 
 /* Umpire participation -> game */
 INSERT INTO umpire_participation (game_id, home_base, first_base, second_base, third_base)
