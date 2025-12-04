@@ -1,5 +1,11 @@
 USE project;
 
+/*
+    Please note: we used ChatGPT to generate some of this mock data.
+    For example, "If I have a table 'players', with the following columns, can you genterate a few rows of mock data?"
+    But we did go through and make signifigant edits and checked for consistency with our schema.
+*/
+
 /* Independent with no foreign keys */
 INSERT INTO organization (organization_name, date_founded, headquarters)
 VALUES ('The Tak-Louis-Zoe League', '1901-01-01', 'Hamden, CT');
