@@ -1,6 +1,4 @@
 [
-
-
   {
     "players": [
       {
@@ -13,10 +11,10 @@
         "bio": "Ace starter",
         "home_stadium": "Knight Park",
         "agent": {
-            "name": "Jerry Maguire",
-            "ssn": 555666777,
-            "salary": 250000.0,
-            "agency": "Prime Sports"
+          "name": "Jerry Maguire",
+          "ssn": 555666777,
+          "salary": 250000.0,
+          "agency": "Prime Sports"
         },
         "injuries": [
           {
@@ -79,7 +77,6 @@
         "coach_role": "Head Coach",
         "coach_hire_date": "2020-11-01",
         "coach_end_date": null,
-        "club_name": "Quinnipiac Sports Group",
         "sponsors": [
           {
             "sponsor_name": "Acme Corp",
@@ -106,63 +103,86 @@
     ]
   },
 
-
-{
-    "games":[
-        {
-            "game_id": 1001,
-            "location": "Knight Park",
-            "game_type": "Regular Season",
-            "home_team": "Quinnipiac Bobcats",
-            "away_team": "Cheshire Bears",
-            "score_home": 5,
-            "score_away": 3,
-            "year_played": 2024,
-            "umpires": [
-                {
-                    "name": "Pat Lawson",
-                    "role": "home_base",
-                    "ssn": 222333444,
-                    "games_participated_count": 120
-                },
-                {
-                    "name": "Dana Kim",
-                    "role": "first_base",
-                    "ssn": 333444555,
-                    "games_participated_count": 98
-                },
-                {
-                    "name": "Morgan Lee",
-                    "role": "second_base",
-                    "ssn": 444555666,
-                    "games_participated_count": 110
-                },
-                {
-                    "name": "Jamie Fox",
-                    "role": "third_base",
-                    "ssn": 666777888,
-                    "games_participated_count": 87
-                }
-            ],
-            "spectators": [
-                {
-                    "fan_club_id": 9001,
-                    "name": "Taylor Brooks",
-                    "ticket_id": 50001,
-                    "seat": "A-101"
-                },
-                {
-                    "fan_club_id": 9002,
-                    "name": "Morgan Lee",
-                    "ticket_id": 50002,
-                    "seat": "A-102"
-                }
-            ]
-        }
+  {
+    "games": [
+      {
+        "game_id": 1001,
+        "location": "Knight Park",
+        "game_type": "Regular Season",
+        "home_team": "Quinnipiac Bobcats",
+        "away_team": "Cheshire Bears",
+        "score_home": 5,
+        "score_away": 3,
+        "year_played": 2024,
+        "umpires": [
+          {
+            "name": "Pat Lawson",
+            "role": "home_base",
+            "ssn": 222333444,
+            "games_participated_count": 120
+          },
+          {
+            "name": "Dana Kim",
+            "role": "first_base",
+            "ssn": 333444555,
+            "games_participated_count": 98
+          },
+          {
+            "name": "Morgan Lee",
+            "role": "second_base",
+            "ssn": 444555666,
+            "games_participated_count": 110
+          },
+          {
+            "name": "Jamie Fox",
+            "role": "third_base",
+            "ssn": 666777888,
+            "games_participated_count": 87
+          }
+        ],
+        "spectators": [
+          {
+            "fan_club_id": 9001,
+            "name": "Taylor Brooks",
+            "ticket_id": 50001,
+            "seat": "A-101"
+          },
+          {
+            "fan_club_id": 9002,
+            "name": "Morgan Lee",
+            "ticket_id": 50002,
+            "seat": "A-102"
+          }
+        ]
+      }
     ]
-}
+  },
 
-
-
+  {
+    "organization": [
+      {
+        "organization_name": "The Tak-Louis-Zoe League",
+        "date_founded": "1901-01-01",
+        "headquarters": "Hamden, CT",
+        "league_name": "Mockdataball League",
+        "league_date_founded": "1901-01-01",
+        "divisions": [
+          {
+            "division_name": "Eastern Division",
+            "date_founded": "1969-01-01"
+          },
+          {
+            "division_name": "Western Division",
+            "date_founded": "1969-01-01"
+          }
+        ],
+        "sports_club_company": {
+          "club_name": "Quinnipiac Sports Group",
+          "address": "123 Broadway, Hamden, CT",
+          "ballpark": "Knight Park",
+          "home_location": "Hamden, CT"
+        }
+      }
+    ]
+  }
 ]
-
