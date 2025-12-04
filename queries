@@ -1,5 +1,5 @@
 --Find all of player name who have carrier batting avg higher than league avg--
-Select p.player_name, avg(s.batting_avg) as carrier_batting_avg
+Select p.player_name, round(avg(s.batting_avg),3) as carrier_batting_avg
 FROM player as p
 Inner join statistics as s on p.player_id = s.player_id
 GROUP BY p.player_id, p.player_name
@@ -8,7 +8,7 @@ Select avg(batting_avg) From statistics
 );
 
 --List all coaches with winning records whose salary is below the average coach salary, along with their win percentage, sorted by salary from lowest to highest.--
-Select C.name, C.salary, (R.wins/(R.wins+R.loss) * 100) as Win_Percentage
+Select C.name, C.salary, Round((R.wins/(R.wins+R.loss) * 100),1) as Win_Percentage
 From Coaches as C
 Inner join record as R on C.team_name = R.team_name
 Where R.wins > R.loss
