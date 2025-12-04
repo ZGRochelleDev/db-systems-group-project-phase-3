@@ -8,7 +8,7 @@ Select avg(batting_avg) From statistics
 );
 
 --List all coaches with winning records whose salary is below the average coach salary, along with their win percentage, sorted by salary from lowest to highest.--
-Select C.name, C.salary, (R.wins/R.loss * 100) as Win_Percentage
+Select C.name, C.salary, (R.wins/(R.wins+R.loss) * 100) as Win_Percentage
 From Coaches as C
 Inner join record as R on C.team_name = R.team_name
 Where R.wins > R.loss
